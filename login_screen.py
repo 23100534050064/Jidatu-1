@@ -3,7 +3,6 @@ from kivy.uix.screenmanager import Screen
 from kivy.lang import Builder
 from kivymd.uix.card import MDCard
 from kivymd.uix.behaviors import HoverBehavior
-
 Builder.load_string(
     """
 <LoginScreen>:
@@ -70,6 +69,7 @@ Builder.load_string(
                         cd.active = False if cd.active == True else True
                         passw.password = False if passw.password == True else True
             MDCard:
+                id: forgot_password
                 spacing: "5dp"
                 padding: "15dp"
                 pos_hint:{"center_x": .5}
@@ -77,6 +77,7 @@ Builder.load_string(
                 height: "40dp"
                 radius: '5dp'
                 size_hint_y: None
+                on_release: app.change_screen('forgot_password')
                 MDIcon:
                     icon:"register"
                     pos_hint:{"center_x": .5, "center_y": .5}
@@ -90,11 +91,17 @@ Builder.load_string(
                     allow_selection: True
                     allow_copy: True
                     font_size: "48dp"
-            TextIconButton:
-                icon:'login'
-                text: "Sign In"
+            MDButton:
                 pos_hint: {"center_x":.5}
                 size_hint_y: None
+                radius: "4dp"
+                on_press: app.change_screen('home')
+                MDButtonText:
+                    text: "Sign In"
+                MDButtonIcon:
+                    icon: "login"
+
+            
             MDLabel:
                 bold:True
                 pos_hint:{"center_x": .5}
