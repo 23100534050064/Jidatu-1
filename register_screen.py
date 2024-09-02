@@ -1,21 +1,21 @@
 from kivy.uix.screenmanager import Screen
 from kivy.lang import Builder
-
+from kivymd.uix.button import MDIconButton
 Builder.load_string(
-   """
+"""
 <RegisterScreen>:
     name: "register"
     MDIconButton:
         icon: "arrow-left"
         size_hint_y:None
         pos_hint:{"center_y": .9,"center_x": .1}
-        on_press: app.change_screen('login')
+        on_press: app.change_screen('login') 
     MDBoxLayout:
         orientation: "vertical"
         size_hint_y:None
         spacing:'15dp'
         padding:'15dp'
-        pos_hint:{"center_x": .5, "center_y": .5}
+        pos_hint:{"center_x": .5, "center_y": .5}       
         MDLabel:
             bold:True
             pos_hint:{"center_x": .5}
@@ -25,7 +25,7 @@ Builder.load_string(
             allow_selection: True
             allow_copy: True
             font_size: "48dp"
-
+        
         MDCard:
             orientation:'vertical'
             radius:15
@@ -79,8 +79,6 @@ Builder.load_string(
                 height: "40dp"
                 radius: '5dp'
                 size_hint_y: None
-                on_press: app.change_screen('customer_register')
-
                 MDIcon:
                     icon:"cart"
                     pos_hint:{"center_x": .5,}
@@ -121,7 +119,6 @@ Builder.load_string(
                     font_size: "48dp"
 """
 )
-
 
 class RegisterScreen(Screen):
     pass
